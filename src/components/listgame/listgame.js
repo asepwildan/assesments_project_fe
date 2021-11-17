@@ -1,47 +1,54 @@
 import React, { useState, useEffect } from "react";
 import "./style/listgame.scss";
 import axios from "axios";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getListGameAsync } from "../../redux/action";
 const ListGame = () => {
-    const key = "?key=f84a54a5936545fa9851e96eb542ac6f";
-    let [gameList, setGameList] = useState([]);
-    let [loading, setLoading] = useState(false);
-    useEffect(() => {
-        axios.get(`https://api.rawg.io/api/games${key}`).then((response) => {
-            console.log(response.data.results, "game");
+    const dispatch = useDispatch();
+    const { listgame, loading } = useSelector((state) => state.getListGameReducer);
+    let [page, setPage] = useState(1);
 
-            setGameList(response.data.results);
-        });
-    }, []);
+    const nextPage = () => {
+        setPage(page + 1);
+    };
+    console.log(page, "page");
+
+    useEffect(() => {
+        dispatch(getListGameAsync(page));
+    }, [dispatch, page]);
 
     return (
         <div className="list-game-container">
-            <h1>List Game</h1>;
-            <div className="list-game">
-                {gameList.map((games) => (
-                    <div key={games.id} className="list-game-box">
-                        <div className="game-img">
-                            <img src={games.background_image} alt="background-img" />
-                        </div>
-                        <p className="game-title">{games.name}</p>
-
-                        <div className="info-game">
-                            <div className="release-date">
-                                <p className="release-date-text">Genres:</p>
-
-                                <p className="release-date-content">
-                                    {" "}
-                                    {games.genres.map((genre) => `${genre.name},`)}
-                                </p>
+            <h1>List Game</h1>;<button onClick={nextPage}>next</button>
+            {loading ? (
+                <h1>LOADING</h1>
+            ) : (
+                <div className="list-game">
+                    {listgame.map((games) => (
+                        <div key={games.id} className="list-game-box">
+                            <div className="game-img">
+                                <img src={games.background_image} alt="background-img" />
                             </div>
-                            <div className="release-date">
-                                <p className="release-date-text">Release date:</p>
-                                <p className="release-date-content">{games.released}</p>
+                            <p className="game-title">{games.name}</p>
+
+                            <div className="info-game">
+                                <div className="release-date">
+                                    <p className="release-date-text">Genres:</p>
+
+                                    <p className="release-date-content">
+                                        {" "}
+                                        {games.genres.map((genre) => `${genre.name},`)}
+                                    </p>
+                                </div>
+                                <div className="release-date">
+                                    <p className="release-date-text">Release date:</p>
+                                    <p className="release-date-content">{games.released}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
