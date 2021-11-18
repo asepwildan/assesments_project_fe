@@ -3,15 +3,20 @@ import "./style/listgame.scss";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getListGameAsync } from "../../redux/action";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+
 const ListGame = () => {
     const dispatch = useDispatch();
     const { listgame, loading } = useSelector((state) => state.getListGameReducer);
     let [page, setPage] = useState(1);
 
-    const nextPage = () => {
-        setPage(page + 1);
-    };
     console.log(page, "page");
+
+    const handleChange = (e, value) => {
+        console.log(value, "pagination");
+        setPage(value);
+    };
 
     useEffect(() => {
         dispatch(getListGameAsync(page));
@@ -19,7 +24,6 @@ const ListGame = () => {
 
     return (
         <div className="list-game-container">
-            <h1>List Game</h1>;<button onClick={nextPage}>next</button>
             {loading ? (
                 <h1>LOADING</h1>
             ) : (
@@ -29,7 +33,9 @@ const ListGame = () => {
                             <div className="game-img">
                                 <img src={games.background_image} alt="background-img" />
                             </div>
-                            <p className="game-title">{games.name}</p>
+                            <div className="game-title-container">
+                                <p className="game-title">{games.name}</p>
+                            </div>
 
                             <div className="info-game">
                                 <div className="release-date">
@@ -47,8 +53,20 @@ const ListGame = () => {
                             </div>
                         </div>
                     ))}
+                    <div className="list-game-box"></div>
                 </div>
             )}
+            <div className="pagination-container">
+                <Stack spacing={2}>
+                    <Pagination
+                        count={100}
+                        variant="outlined"
+                        shape="rounded"
+                        size="large"
+                        onChange={handleChange}
+                    />
+                </Stack>
+            </div>
         </div>
     );
 };

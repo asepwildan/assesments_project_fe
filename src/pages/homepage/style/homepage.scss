@@ -1,5 +1,4 @@
 .homepage-container {
-    border-style: solid;
     width: 100%;
     background-color: #151515;
     .content-filter-container {
@@ -9,13 +8,88 @@
         justify-content: center;
         .leftSide {
             width: 20%;
-            height: 400px;
-            border-style: solid;
+            .platforms-container {
+                text-align: left;
+                .platforms-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #fff;
+                    margin: 10px 0px 15px 0px;
+                }
+                .platforms-box {
+                    color: #fff;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                    &:hover #abcd {
+                        background-color: #5a5a5a;
+                        border: 2px solid #5a5a5a;
+                    }
+
+                    #abcd {
+                        width: 35px;
+                        height: 35px;
+                        border: 2px solid #202020;
+                        border-radius: 4px;
+                        position: relative;
+                        img {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                    .platforms-name {
+                        font-weight: bold;
+                    }
+                }
+            }
         }
         .rightSide {
             width: 75%;
+        }
+    }
+}
 
-            border-style: solid;
+.genres-container {
+    text-align: left;
+    .genres-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        margin: 25px 0px 15px 0px;
+    }
+    .genres-box {
+        color: #fff;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 10px;
+        &:hover #abcd {
+            background-color: #5a5a5a;
+            border: 2px solid #5a5a5a;
+        }
+
+        #abcd {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #202020;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            img {
+                height: 100%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .genres-name {
+            font-weight: bold;
         }
     }
 }
