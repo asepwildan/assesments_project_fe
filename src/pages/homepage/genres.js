@@ -6,35 +6,41 @@ import Shooter from "./img/shooter.jpg";
 import Racing from "./img/racing.jpg";
 import Sport from "./img/sport.jpg";
 export const getGenres = [
-    { name: "Action", id: 1, img: ActionImg },
+    { name: "action", id: 1, img: ActionImg, title: "Action" },
     {
-        name: "Advanture",
+        name: "adventure",
         id: 2,
         img: AdventureImg,
+        title: "Adventure",
     },
     {
-        name: "Strategy",
+        name: "strategy",
         id: "3",
         img: Strategy,
+        title: "Strategy",
     },
     {
-        name: "RPG",
+        name: "role-playing-games-rpg",
         id: 4,
         img: Rpg,
+        title: "RPG",
     },
     {
-        name: "Shooter",
+        name: "shooter",
         id: 5,
         img: Shooter,
+        title: "Shooter",
     },
     {
-        name: "Racing",
+        name: "racing",
         id: 6,
         img: Racing,
+        title: "Racing",
     },
     {
-        name: "Sport",
+        name: "sports",
         id: 7,
         img: Sport,
+        title: "Sports",
     },
 ];

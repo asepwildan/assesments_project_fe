@@ -68,6 +68,7 @@
         align-items: center;
         cursor: pointer;
         margin-bottom: 10px;
+
         &:hover #abcd {
             background-color: #5a5a5a;
             border: 2px solid #5a5a5a;
@@ -91,5 +92,27 @@
         .genres-name {
             font-weight: bold;
         }
+    }
+}
+
+.wishlist-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .wishlist-logo-box {
+        width: 45px;
+        height: 45px;
+        border: 2px solid #202020;
+        border-radius: 4px;
+        padding: 4px;
+        text-align: center;
+        img {
+            height: 100%;
+        }
+    }
+    .wishlist-title {
+        color: #fff;
+        font-size: 24px;
     }
 }

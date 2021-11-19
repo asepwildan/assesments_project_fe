@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import getListGameReducer from "./getListGame";
-const rootReducer = combineReducers({ getListGameReducer });
+import getFilterGameReducer from "./getFiltergame";
+const rootReducer = combineReducers({ getListGameReducer, getFilterGameReducer });
 
 export default rootReducer;

@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
-import "./style/listgame.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getListGameAsync } from "../../redux/action";
+import { getFilterGameAsync } from "../../redux/action";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-
-const ListGame = () => {
+const FilterGenre = (props) => {
     const dispatch = useDispatch();
-    const { listgame, loading } = useSelector((state) => state.getListGameReducer);
+    const { full, listgame, nextPage, loading } = useSelector(
+        (state) => state.getFilterGameReducer
+    );
     let [page, setPage] = useState(1);
+    let setCurrentPage = nextPage.split("page=")[1] - 1;
+    // let currentPage = setCurrentPage[1] - 1;
+    // console.log(currentPage[currentPage.length - 1] - 1, "adsd");
+    console.log(setCurrentPage, "page nih");
 
-    console.log(page, "page");
+    useEffect(() => {
+        dispatch(getFilterGameAsync(props.genre.toLowerCase(), page));
+    }, [dispatch, props.genre, page]);
 
     const handleChange = (e, value) => {
         console.log(value, "pagination");
@@ -18,11 +24,12 @@ const ListGame = () => {
     };
 
     useEffect(() => {
-        dispatch(getListGameAsync(page));
-    }, [dispatch, page]);
-
+        setPage(1);
+        console.log("wow");
+    }, [props.genre]);
     return (
         <div className="list-game-container">
+            <h1>{props.genre}</h1>
             {loading ? (
                 <h1>LOADING</h1>
             ) : (
@@ -56,18 +63,19 @@ const ListGame = () => {
                 </div>
             )}
             <div className="pagination-container">
-                <Stack spacing={2}>
-                    <Pagination
-                        count={100}
-                        variant="outlined"
-                        shape="rounded"
-                        size="large"
-                        onChange={handleChange}
-                    />
-                </Stack>
+                {/* <Stack spacing={2}> */}
+                <Pagination
+                    count={100}
+                    page={nextPage.split("page=")[1] - 1}
+                    variant="outlined"
+                    shape="rounded"
+                    size="large"
+                    onChange={handleChange}
+                />
+                {/* </Stack> */}
             </div>
         </div>
     );
 };
 
-export default ListGame;
+export default FilterGenre;
