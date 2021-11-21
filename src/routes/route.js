@@ -1,12 +1,14 @@
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "../pages/homepage/homepage";
-
+import GameDetail from "../pages/gamedetail/gamedetail";
 function RoutesLink() {
     return (
         <Router>
             <Routes>
-                <Route exact path="/" element={<Home />} />
-                {/* <Route path="/genre/:id" element={<Home />} /> */}
+                {/* <Route index element={<UsersIndex />} />
+             <Route path=":id" element={<UserProfile />} /> */}
+                <Route exact path="" element={<Home />} />
+                <Route exact path="gamedetail/:id" element={<GameDetail />} />
             </Routes>
         </Router>
     );

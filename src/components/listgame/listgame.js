@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getListGameAsync } from "../../redux/action";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { Link } from "react-router-dom";
 
 const ListGame = () => {
     const dispatch = useDispatch();
@@ -28,7 +29,11 @@ const ListGame = () => {
             ) : (
                 <div className="list-game">
                     {listgame.map((games) => (
-                        <div key={games.id} className="list-game-box">
+                        <Link
+                            key={games.id}
+                            to={`gamedetail/${games.slug}`}
+                            style={{ textDecoration: "none" }}
+                            className="list-game-box">
                             <div className="game-img">
                                 <img src={games.background_image} alt="background-img" />
                             </div>
@@ -50,7 +55,7 @@ const ListGame = () => {
                                     <p className="release-date-content">{games.released}</p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                     <div className="list-game-box"></div>
                 </div>

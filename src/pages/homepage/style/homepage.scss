@@ -1,13 +1,26 @@
 .homepage-container {
     width: 100%;
     background-color: #151515;
+
     .content-filter-container {
         width: 100%;
         display: flex;
         gap: 30px;
         justify-content: center;
+
         .leftSide {
             width: 20%;
+            text-align: left;
+            .home-title {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 30px;
+                color: #fff;
+                cursor: pointer;
+                &:hover {
+                    color: #5a5a5a;
+                }
+            }
             .platforms-container {
                 text-align: left;
                 .platforms-title {

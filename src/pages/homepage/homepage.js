@@ -10,7 +10,8 @@ import Android from "./style/android2.svg";
 import { getGenres } from "./genres";
 import Wishlist from "./img/wishlist.png";
 import FilterGenre from "../../components/filter-genre/filterGenre";
-
+import Navbar from "../../components/navbar/navbar";
+import Banner from "../../components/banner/banner";
 const Homepage = () => {
     let [genrePass, setGenrePass] = useState("");
     const selectGenre = (value) => {
@@ -24,10 +25,11 @@ const Homepage = () => {
     return (
         <React.Fragment>
             <div className="homepage-container">
-                <h1 onClick={setHome}>Home Page</h1>;
+                <Navbar />
+                <Banner />
                 <div className="content-filter-container">
                     <div className="leftSide">
-                        <p className="platforms-title" onClick={setHome}>
+                        <p className="home-title" onClick={setHome}>
                             Home
                         </p>
                         <div className="platforms-container">
