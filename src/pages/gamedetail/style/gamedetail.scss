@@ -2,6 +2,20 @@
     width: 100%;
     background-color: #151515;
     position: relative;
+    .link-to-home {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 9;
+        cursor: pointer;
+        button {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background-color: #fff;
+        }
+    }
     .game-detail-img-container {
         width: 100%;
         position: relative;
@@ -61,7 +75,7 @@
     .game-info-detail {
         display: flex;
         width: 90%;
-        margin: 0 auto;
+        margin: 0px auto 70px auto;
         color: #fff;
         gap: 100px;
         .synopsis-container {
@@ -170,8 +184,8 @@
 
 .rating-average {
     position: absolute;
-    right: 30px;
-    top: 30px;
+    right: 20px;
+    top: 20px;
     width: 100px;
     height: 100px;
     border: 2px solid #3a3a3a;
@@ -187,5 +201,55 @@
         font-size: 28px;
         font-weight: bold;
         color: #c8ff00;
+    }
+}
+
+@media all and (max-width: 900px) {
+    .game-detail-container .game-info-detail {
+        display: block;
+    }
+    .game-detail-container .game-info-detail .synopsis-container {
+        width: 100%;
+    }
+    .game-detail-container .game-info-detail .rating-wishlist-container {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .game-detail-container .game-info-detail .rating-wishlist-container .wishlist-box-container {
+        display: none;
+    }
+    .game-detail-container .game-info-detail .synopsis-container .rating-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .game-detail-container .game-info-detail .synopsis-container .rating-container .rating-box {
+        width: 45%;
+    }
+    .game-detail-container .game-info {
+        top: 200px;
+    }
+    .game-detail-container .game-detail-img-container {
+        height: 350px;
+    }
+    .game-detail-container .game-info .game-name {
+        font-size: 35px;
+    }
+}
+
+@media all and (max-width: 468px) {
+    .game-detail-container .game-info-detail .synopsis-container .rating-container .rating-box {
+        width: 80%;
+    }
+    .game-detail-container .game-detail-img-container .background-filter {
+        height: 70vh;
+    }
+    .game-detail-container .game-info {
+        top: 200px;
+    }
+    .game-detail-container .game-info .game-name {
+        font-size: 30px;
     }
 }

@@ -5,16 +5,14 @@ import { getListGameAsync } from "../../redux/action";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
+import nextIcon from "./style/next.png";
 
 const ListGame = () => {
     const dispatch = useDispatch();
     const { listgame, loading } = useSelector((state) => state.getListGameReducer);
     let [page, setPage] = useState(1);
 
-    console.log(page, "page");
-
     const handleChange = (e, value) => {
-        console.log(value, "pagination");
         setPage(value);
     };
 
@@ -57,7 +55,11 @@ const ListGame = () => {
                             </div>
                         </Link>
                     ))}
-                    <div className="list-game-box"></div>
+                    <div className="list-game-box">
+                        <div className="next-icon-box">
+                            <img src={nextIcon} alt="" className="next-icon" />
+                        </div>
+                    </div>
                 </div>
             )}
             <div className="pagination-container">

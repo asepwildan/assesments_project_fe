@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFilterGameAsync } from "../../redux/action";
 import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
+
 import { Link } from "react-router-dom";
 const FilterGenre = (props) => {
     const dispatch = useDispatch();
@@ -10,27 +10,21 @@ const FilterGenre = (props) => {
         (state) => state.getFilterGameReducer
     );
     let [page, setPage] = useState(1);
-    let setCurrentPage = nextPage.split("page=")[1] - 1;
-    // let currentPage = setCurrentPage[1] - 1;
-    // console.log(currentPage[currentPage.length - 1] - 1, "adsd");
-    console.log(setCurrentPage, "page nih");
+    let setCurrentPage = nextPage?.split("page=")[1] - 1;
 
     useEffect(() => {
-        dispatch(getFilterGameAsync(props.genre.toLowerCase(), page));
+        dispatch(getFilterGameAsync(props?.genre?.toLowerCase(), page));
     }, [dispatch, props.genre, page]);
 
     const handleChange = (e, value) => {
-        console.log(value, "pagination");
         setPage(value);
     };
 
     useEffect(() => {
         setPage(1);
-        console.log("wow");
     }, [props.genre]);
     return (
         <div className="list-game-container">
-            <h1>{props.genre}</h1>
             {loading ? (
                 <h1>LOADING</h1>
             ) : (
@@ -67,18 +61,20 @@ const FilterGenre = (props) => {
                     <div className="list-game-box"></div>
                 </div>
             )}
-            <div className="pagination-container">
-                {/* <Stack spacing={2}> */}
-                <Pagination
-                    count={100}
-                    page={nextPage.split("page=")[1] - 1}
-                    variant="outlined"
-                    shape="rounded"
-                    size="large"
-                    onChange={handleChange}
-                />
-                {/* </Stack> */}
-            </div>
+            {loading ? (
+                <div></div>
+            ) : (
+                <div className="pagination-container">
+                    <Pagination
+                        count={100}
+                        page={setCurrentPage}
+                        variant="outlined"
+                        shape="rounded"
+                        size="large"
+                        onChange={handleChange}
+                    />
+                </div>
+            )}
         </div>
     );
 };

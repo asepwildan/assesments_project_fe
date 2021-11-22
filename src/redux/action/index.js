@@ -54,3 +54,14 @@ export const getFilterGameFailed = (err) => ({
         err,
     },
 });
+
+export const genreConditionTrue = (cond) => ({
+    type: "set-true/genre-filter",
+    payload: {
+        cond,
+    },
+});
+
+export const genreConditionFalse = {
+    type: "set-false/genre-filter",
+};

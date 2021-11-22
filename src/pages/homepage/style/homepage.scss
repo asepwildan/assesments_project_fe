@@ -129,3 +129,40 @@
         font-size: 24px;
     }
 }
+
+@media all and (max-width: 900px) {
+    .list-game-container .list-game .list-game-box {
+        width: 48%;
+    }
+    .homepage-container .content-filter-container {
+        display: block;
+    }
+
+    .homepage-container .content-filter-container .rightSide {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .homepage-container .content-filter-container .leftSide .platforms-container {
+        display: none;
+    }
+    .homepage-container .content-filter-container .leftSide {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .genres-container .genres-title {
+        flex: 1 100%;
+        text-align: center;
+    }
+    .genres-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .genres-container .genres-box {
+        padding: 0px 10px;
+        // width: 20%;
+    }
+    .homepage-container .content-filter-container .leftSide .home-title {
+        display: none;
+    }
+}

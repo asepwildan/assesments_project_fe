@@ -6,7 +6,9 @@ import exceptionalImg from "./img/exceptional.png";
 import RecommendedImg from "./img/recomended.png";
 import mehImg from "./img/meh.png";
 import poopImg from "./img/poop.png";
+import Footer from "../../components/footer/footer";
 import Wishlist from "../homepage/img/wishlist.png";
+import { Link } from "react-router-dom";
 const GameDetail = () => {
     let { id } = useParams();
     let [background, setBackground] = useState("");
@@ -21,6 +23,7 @@ const GameDetail = () => {
     let [genres, setGenres] = useState([]);
     let [ageRating, setAgeRating] = useState("");
     let [ratingAverage, setRatingAverage] = useState("");
+
     var months = [
         "January",
         "February",
@@ -48,7 +51,6 @@ const GameDetail = () => {
                 setPlatformsGame(response.data.platforms);
                 setGameName(response.data.name);
                 setSynopsis(response.data.description);
-                console.log(response.data.rating, "rating");
                 setRating(response.data.ratings);
                 setMeta(response.data.metacritic);
                 setDevelovers(response.data.developers);
@@ -60,9 +62,12 @@ const GameDetail = () => {
                 console.log(err, "err game detail");
             });
     }, []);
-    console.log(ratingAverage, "average");
+
     return (
         <div className="game-detail-container">
+            <Link to={`/`} style={{ textDecoration: "none" }} className="link-to-home">
+                <button>Back To Home</button>
+            </Link>
             <div className="rating-average">
                 <p className="rating-average-title">RATING</p>
                 <p className="rating-average-info">{ratingAverage}</p>
@@ -171,6 +176,7 @@ const GameDetail = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

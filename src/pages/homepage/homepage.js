@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Link, Routes } from "react-router-dom";
 import "./style/homepage.scss";
 import ListGame from "../../components/listgame/listgame";
@@ -13,9 +14,9 @@ import FilterGenre from "../../components/filter-genre/filterGenre";
 import Navbar from "../../components/navbar/navbar";
 import Banner from "../../components/banner/banner";
 const Homepage = () => {
+    const { genreComponent } = useSelector((state) => state.genreConditionReducer);
     let [genrePass, setGenrePass] = useState("");
     const selectGenre = (value) => {
-        console.log(value, "genre");
         setGenrePass(value);
     };
     const setHome = () => {
@@ -89,7 +90,11 @@ const Homepage = () => {
                         </div>
                     </div>
                     <div className="rightSide">
-                        {genrePass !== "" ? <FilterGenre genre={genrePass} /> : <ListGame />}
+                        {genrePass !== "" || genreComponent === true ? (
+                            <FilterGenre genre={genrePass} />
+                        ) : (
+                            <ListGame />
+                        )}
                     </div>
                 </div>
                 <Footer />

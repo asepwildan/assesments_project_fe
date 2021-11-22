@@ -13,16 +13,110 @@
         justify-content: space-between;
         align-items: center;
         .left-box {
-            p {
+            .home-navbar {
+                font-size: 24px;
+                font-weight: bold;
+                display: none;
+                cursor: pointer;
+            }
+            .hello-navbar {
                 font-size: 24px;
                 font-weight: bold;
             }
         }
         .right-box {
-            p {
+            .add-wishlist {
                 font-size: 20px;
                 font-weight: bold;
             }
+            .filter-genre {
+                font-size: 18px;
+                font-weight: bold;
+                display: none;
+                border: 1px solid white;
+                padding: 5px 10px;
+                border-radius: 4px;
+            }
         }
+    }
+}
+
+// .filter-genre-modal {
+//     width: 50%;
+//     height: 100px;
+//     border-radius: 8px;
+//     background-color: #151515;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+// }
+
+.filter-genre-modal {
+    text-align: left;
+    width: 40%;
+    // height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #151515;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .genres-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        margin: 10px 0px 10px 0px;
+    }
+    .genres-box {
+        color: #fff;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 10px;
+
+        &:hover #abcd {
+            background-color: #5a5a5a;
+            border: 2px solid #5a5a5a;
+        }
+
+        #abcd {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #202020;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            img {
+                height: 100%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .genres-name {
+            font-weight: bold;
+        }
+    }
+}
+
+@media all and (max-width: 900px) {
+    .navbar-container .navbar-box .right-box .add-wishlist {
+        display: none;
+    }
+    .navbar-container .navbar-box .right-box .filter-genre {
+        display: block;
+    }
+    .navbar-container .navbar-box .left-box .hello-navbar {
+        display: none;
+    }
+    .navbar-container .navbar-box .left-box .home-navbar {
+        display: block;
+    }
+    .navbar-container .navbar-box .right-box .filter-genre {
+        display: none;
     }
 }
