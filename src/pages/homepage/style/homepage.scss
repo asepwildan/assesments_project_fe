@@ -1,0 +1,168 @@
+.homepage-container {
+    width: 100%;
+    background-color: #151515;
+
+    .content-filter-container {
+        width: 100%;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+
+        .leftSide {
+            width: 20%;
+            text-align: left;
+            .home-title {
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 30px;
+                color: #fff;
+                cursor: pointer;
+                &:hover {
+                    color: #5a5a5a;
+                }
+            }
+            .platforms-container {
+                text-align: left;
+                .platforms-title {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #fff;
+                    margin: 10px 0px 15px 0px;
+                }
+                .platforms-box {
+                    color: #fff;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                    &:hover #abcd {
+                        background-color: #5a5a5a;
+                        border: 2px solid #5a5a5a;
+                    }
+
+                    #abcd {
+                        width: 35px;
+                        height: 35px;
+                        border: 2px solid #202020;
+                        border-radius: 4px;
+                        position: relative;
+                        img {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                    .platforms-name {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        .rightSide {
+            width: 75%;
+        }
+    }
+}
+
+.genres-container {
+    text-align: left;
+    .genres-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        margin: 25px 0px 15px 0px;
+    }
+    .genres-box {
+        color: #fff;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 10px;
+
+        &:hover #abcd {
+            background-color: #5a5a5a;
+            border: 2px solid #5a5a5a;
+        }
+
+        #abcd {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #202020;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            img {
+                height: 100%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .genres-name {
+            font-weight: bold;
+        }
+    }
+}
+
+.wishlist-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .wishlist-logo-box {
+        width: 45px;
+        height: 45px;
+        border: 2px solid #202020;
+        border-radius: 4px;
+        padding: 4px;
+        text-align: center;
+        img {
+            height: 100%;
+        }
+    }
+    .wishlist-title {
+        color: #fff;
+        font-size: 24px;
+    }
+}
+
+@media all and (max-width: 900px) {
+    .list-game-container .list-game .list-game-box {
+        width: 48%;
+    }
+    .homepage-container .content-filter-container {
+        display: block;
+    }
+
+    .homepage-container .content-filter-container .rightSide {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .homepage-container .content-filter-container .leftSide .platforms-container {
+        display: none;
+    }
+    .homepage-container .content-filter-container .leftSide {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .genres-container .genres-title {
+        flex: 1 100%;
+        text-align: center;
+    }
+    .genres-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .genres-container .genres-box {
+        padding: 0px 10px;
+        // width: 20%;
+    }
+    .homepage-container .content-filter-container .leftSide .home-title {
+        display: none;
+    }
+}

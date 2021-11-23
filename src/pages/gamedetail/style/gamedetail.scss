@@ -1,0 +1,255 @@
+.game-detail-container {
+    width: 100%;
+    background-color: #151515;
+    position: relative;
+    .link-to-home {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 9;
+        cursor: pointer;
+        button {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background-color: #fff;
+        }
+    }
+    .game-detail-img-container {
+        width: 100%;
+        position: relative;
+        height: 550px;
+        overflow: hidden;
+        .background-filter {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(
+                to bottom,
+                rgba(21, 21, 21, 0.2),
+                rgba(21, 21, 21, 0.5),
+                rgba(21, 21, 21, 0.7),
+                rgba(21, 21, 21, 1)
+            );
+        }
+        .game-detail-img-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .game-info {
+        position: absolute;
+        color: #fff;
+        text-align: left;
+        top: 340px;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+
+        .date-platforms-container {
+            .date-info {
+                text-transform: uppercase;
+                padding: 2px 7px;
+                display: inline-block;
+                background-color: #fff;
+                font-size: 14px;
+                border-radius: 4px;
+                color: rgb(0, 0, 0);
+            }
+        }
+        .game-name {
+            font-size: 40px;
+            font-weight: bold;
+        }
+    }
+
+    .game-info-detail {
+        display: flex;
+        width: 90%;
+        margin: 0px auto 70px auto;
+        color: #fff;
+        gap: 100px;
+        .synopsis-container {
+            text-align: justify;
+            width: 70%;
+            .rating-container {
+                margin: 20px 0px;
+                display: flex;
+                width: 100%;
+                gap: 20px;
+                .rating-box {
+                    display: flex;
+                    width: 25%;
+                    height: 60px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 4px;
+                    gap: 15px;
+
+                    border: 1px solid rgb(116, 116, 116);
+                    .rating-emoji-box {
+                        width: 45px;
+                        height: 45px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .rating-info {
+                        text-transform: capitalize;
+                        text-align: center;
+                        .rating-title {
+                            font-weight: bold;
+                        }
+                        .rating-count {
+                            color: rgb(160, 160, 160);
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .sypnopis-title {
+                font-weight: bold;
+                font-size: 26px;
+                margin: 30px 0px 20px 0px;
+            }
+        }
+        .rating-wishlist-container {
+            width: 30%;
+
+            padding: 0px 10px;
+            .wishlist-box-container {
+                display: flex;
+                width: 100%;
+                justify-content: right;
+                .wishlist-box {
+                    display: flex;
+                    margin: 20px 0px;
+                    width: 200px;
+                    height: 60px;
+                    border-radius: 4px;
+                    border: 1px solid rgb(116, 116, 116);
+                    justify-content: center;
+                    gap: 10px;
+                    align-items: center;
+                    font-weight: bold;
+                    img {
+                        padding: 4px 0px;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .detail-game-full-container {
+            width: 100%;
+            .detail-game-box {
+                display: flex;
+                text-align: left;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.detail-game-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(187, 187, 187);
+    margin-bottom: 7px;
+}
+.metascore {
+    text-align: right;
+}
+.metascore-info {
+    display: inline-block;
+    padding: 7px;
+    color: #39ff14;
+    border: 1px solid #39ff14;
+    border-radius: 4px;
+}
+.platforms-container {
+    width: 100%;
+    text-align: left;
+}
+
+.rating-average {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #3a3a3a;
+    z-index: 9;
+    padding: 18px 0px;
+    border-radius: 8px;
+    .rating-average-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .rating-average-info {
+        font-size: 28px;
+        font-weight: bold;
+        color: #c8ff00;
+    }
+}
+
+@media all and (max-width: 900px) {
+    .game-detail-container .game-info-detail {
+        display: block;
+    }
+    .game-detail-container .game-info-detail .synopsis-container {
+        width: 100%;
+    }
+    .game-detail-container .game-info-detail .rating-wishlist-container {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .game-detail-container .game-info-detail .rating-wishlist-container .wishlist-box-container {
+        display: none;
+    }
+    .game-detail-container .game-info-detail .synopsis-container .rating-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .game-detail-container .game-info-detail .synopsis-container .rating-container .rating-box {
+        width: 45%;
+    }
+    .game-detail-container .game-info {
+        top: 200px;
+    }
+    .game-detail-container .game-detail-img-container {
+        height: 350px;
+    }
+    .game-detail-container .game-info .game-name {
+        font-size: 35px;
+    }
+}
+
+@media all and (max-width: 468px) {
+    .game-detail-container .game-info-detail .synopsis-container .rating-container .rating-box {
+        width: 80%;
+    }
+    .game-detail-container .game-detail-img-container .background-filter {
+        height: 70vh;
+    }
+    .game-detail-container .game-info {
+        top: 200px;
+    }
+    .game-detail-container .game-info .game-name {
+        font-size: 30px;
+    }
+}
