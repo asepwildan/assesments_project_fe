@@ -1,3 +1,15 @@
+#assessment project Asep Wildan N 
+## tech stack
+- ReactJS
+- Material Ui untuk Pagination
+- scss untuk styling
+- axios untuk fetch API dari rAWG
+- Heroku untuk deployment
+- responsive
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
