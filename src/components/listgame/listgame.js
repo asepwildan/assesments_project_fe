@@ -55,11 +55,7 @@ const ListGame = () => {
                             </div>
                         </Link>
                     ))}
-                    <div className="list-game-box">
-                        <div className="next-icon-box">
-                            <img src={nextIcon} alt="" className="next-icon" />
-                        </div>
-                    </div>
+                    <div className="list-game-box"></div>
                 </div>
             )}
             <div className="pagination-container">
