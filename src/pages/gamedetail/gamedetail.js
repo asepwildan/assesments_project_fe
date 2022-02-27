@@ -10,6 +10,7 @@ import Footer from "../../components/footer/footer";
 import Wishlist from "../homepage/img/wishlist.png";
 import { Link } from "react-router-dom";
 const GameDetail = () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
     let { id } = useParams();
     let [background, setBackground] = useState("");
     let [dateRes, setDetRes] = useState("");
@@ -43,7 +44,7 @@ const GameDetail = () => {
 
     useEffect(() => {
         axios
-            .get(`https://api.rawg.io/api/games/${id}?key=f84a54a5936545fa9851e96eb542ac6f`)
+            .get(`https://api.rawg.io/api/games/${id}?key=${apiKey}`)
             .then((response) => {
                 setRatingAverage(response.data.rating);
                 setBackground(response.data.background_image);
